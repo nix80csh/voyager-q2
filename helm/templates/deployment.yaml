@@ -18,8 +18,18 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
+        volumeMounts:
+        - name: shared-data
+          mountPath: /app/data
       - name: signup-app
         image: localhost:5000/signup
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5002
+        volumeMounts:
+        - name: shared-data
+          mountPath: /app/data
+      volumes:
+      - name: shared-data
+        persistentVolumeClaim:
+          claimName: shared-pvc
