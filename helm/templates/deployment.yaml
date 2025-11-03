@@ -24,4 +24,4 @@ spec:
       volumes:
       - name: xda
         persistentVolumeClaim:
-          claimName: voyater-pvc
+          claimName: voyager-pvc
