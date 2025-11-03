@@ -1,27 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}
+  name: multi-app
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      app: multi-app
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}
+        app: multi-app
     spec:
       containers:
-      - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+      - name: list-app
+        image: localhost:5000/list
+        imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: xda
-          mountPath: /app/data
-      volumes:
-      - name: xda
-        persistentVolumeClaim:
-          claimName: voyager-pvc
+        - containerPort: 5000
+      - name: signup-app
+        image: localhost:5000/signup
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5002

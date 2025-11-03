@@ -1,12 +1,27 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Chart.Name }}-svc
+  name: list-app-svc
 spec:
-  type: {{ .Values.service.type }}
+  type: NodePort
   selector:
-    app: {{ .Chart.Name }}
+    app: multi-app
   ports:
-  - port: {{ .Values.service.port }}
-    targetPort: 80
-    nodePort: {{ .Values.service.nodePort }}
+  - name: list-port
+    port: 8080
+    targetPort: 5000
+    nodePort: 81
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: signup-app-svc
+spec:
+  type: NodePort
+  selector:
+    app: multi-app
+  ports:
+  - name: signup-port
+    port: 8090
+    targetPort: 5002
+    nodePort: 82
