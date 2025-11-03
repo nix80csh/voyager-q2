@@ -18,3 +18,10 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: xda
+          mountPath: /app/data
+      volumes:
+      - name: xda
+        persistentVolumeClaim:
+          claimName: voyater-pvc
