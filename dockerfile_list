@@ -1,0 +1,6 @@
+FROM python:3.11-slim
+WORKDIR /app
+RUN mkdir -p /app/data
+COPY list_app.py db_handler.py ./
+RUN pip install flask
+CMD ["python", "list_app.py"]
