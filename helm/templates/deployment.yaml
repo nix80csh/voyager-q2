@@ -32,4 +32,4 @@ spec:
       volumes:
       - name: shared-data
         persistentVolumeClaim:
-          claimName: shared-pvc
+          claimName: voyager-pvc
