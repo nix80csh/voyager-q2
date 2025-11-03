@@ -6,7 +6,7 @@ spec:
   capacity:
     storage: 1Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
     path: /mnt/data/db-json
 ---
@@ -16,7 +16,7 @@ metadata:
   name: voyager-pvc
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
