@@ -10,7 +10,7 @@ spec:
   - name: list-port
     port: 8080
     targetPort: 5000
-    nodePort: 81
+    nodePort: 30081
 ---
 apiVersion: v1
 kind: Service
@@ -24,4 +24,4 @@ spec:
   - name: signup-port
     port: 8090
     targetPort: 5002
-    nodePort: 82
+    nodePort: 30082
