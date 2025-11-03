@@ -2,7 +2,7 @@
 import json
 import os
 
-DB_FILE = './data/db.json'
+DB_FILE = '/app/data/db.json'
 
 def initialize_db():
     if not os.path.exists(DB_FILE):
