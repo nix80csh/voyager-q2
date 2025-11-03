@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: multi-app
 spec:
-  replicas: 6
+  replicas: 20
   selector:
     matchLabels:
       app: multi-app
@@ -15,7 +15,6 @@ spec:
       containers:
       - name: list-app
         image: localhost:5000/list
-        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
         volumeMounts:
@@ -23,7 +22,6 @@ spec:
           mountPath: /app/data
       - name: signup-app
         image: localhost:5000/signup
-        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5002
         volumeMounts:
