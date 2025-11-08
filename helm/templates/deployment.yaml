@@ -38,7 +38,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: mariadb-secret
-  namespace: mydb
+  namespace: argocd
 type: Opaque
 data:
   # root password: "myrootpassword" base64 인코딩
