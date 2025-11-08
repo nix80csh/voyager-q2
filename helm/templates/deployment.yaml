@@ -48,7 +48,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mariadb
-  namespace: mydb
+  namespace: argocd
 spec:
   replicas: 1
   selector:
